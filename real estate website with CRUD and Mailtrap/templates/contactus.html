@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Contact US</title>
+{% endblock %}
+
+
+{% block body %}
+<h1>Contact Us</h1>
+<hr>
+<h2>Fill this forms:</h2>
+    {% if message %}
+    <div class="alert alert-light" role="alert">
+        {{message}}
+      </div>
+    {% endif %}
+
+<form action='/contactus' method='POST'>
+    <label for="name">Name: *</label>
+    <input class="form-control" type='text' name='name' id='name' placeholder="Enter name" aria-label="Enter name">
+    <br>
+    <label for="email_add">Enter Email Address: *</label>
+    <input class="form-control" type='text' name='email_add' id='email_add' placeholder="Enter Email Address"
+        aria-label="Enter Email Address">
+    <br>
+    <label for="description">Describe: *</label>
+    <textarea class="form-control" type='text' name='description' id='description' placeholder="Enter Description"
+        aria-label="Enter Description" rows="3"></textarea>
+    <br>
+    
+    <input class="btn btn-primary" type='submit' value='Send'>
+</form>
+<hr>
+
+{% endblock %}

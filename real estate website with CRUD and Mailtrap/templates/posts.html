@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Posts</title>
+{% endblock %}
+
+{% block body %}
+    <br>
+    <div>
+        <h1 style="display:inline">All posts</h1>
+        <a style="display:inline"class="btn btn-success float-right" href="/posts/new">+ New Post</a>
+    </div>
+        <hr>
+        {% if message %}
+        <div class="alert alert-light" role="alert">
+        {{message}}
+        </div>
+         {% endif %}
+
+        {% for post in posts %}
+
+            <h2>{{ post.title }}</h2>
+
+            <small> Posted By: {{ post.owner }} on {{ post.date_posted }}</small>
+            <br>
+            <h6>Email: {{ post.emails }}</h6>
+            <br>
+            <h6>It's a: {{ post.property }}</h6>
+            {% if post.want %}
+                <h6> Owner want's to: {{ post.want }} </h6>
+            {% else %}
+                <h6> Owner want's to: Not Disclosed</h6>
+            {% endif %}
+            
+            <h6>Site Address: {{ post.address }}</h6>
+            <br>
+            <p style="white-space:pre-wrap">Description: {{ post.description }}</p>
+            <br>
+            <a class="btn btn-danger" href='/posts/delete/{{ post.id }}'>Delete</a>
+            <a class="btn btn-primary" href='/posts/edit/{{ post.id }}'>Edit</a>
+            <hr>
+            <br>
+
+        {% endfor %}
+
+{% endblock %}

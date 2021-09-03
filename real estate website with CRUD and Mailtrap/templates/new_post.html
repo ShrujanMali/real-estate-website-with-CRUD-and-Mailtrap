@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Post Property for free</title>
+{% endblock %}
+
+
+{% block body %}
+
+<h2>Post a Property:</h2>
+
+    {% if message %}
+    <div class="alert alert-light" role="alert">
+        {{message}}
+      </div>
+    {% endif %}
+
+<form action='/posts' method='POST'>
+    <label for="title">Title: *</label>
+    <input class="form-control" type='text' name='title' id='title' placeholder="Enter Title" aria-label="Enter Title">
+    <br>
+    <label for="owner">Name of Owner: *</label>
+    <input class="form-control" type='text' name='owner' id='owner' placeholder="Enter Name" aria-label="Enter Name">
+    <br>
+    <label for="address">Address: *</label>
+    <input class="form-control" type='text' name='address' id='address' placeholder="Enter Address"
+        aria-label="Enter Address">
+    <br>
+    <div class="form-group">
+        <h6 style="display:inline">It's a... *</h6>
+        <select style="display:inline" name="property">
+            <option value="">Select Type</option>
+            <option value="Bunglow">Bunglow</option>
+            <option value="Flat">Flat</option>
+            <option value="Office">Office</option>
+            <option value="Shop">Shop</option>
+        </select>
+    </div>
+    <br>
+    <div class="form-group">
+        <h6 style="display:inline"> Want to</h6>
+        <select style="display:inline" name="want">
+            <option value="">Select type</option>
+            <option value="Lease">Lease</option>
+            <option value="Rent">Rent</option>
+            <option value="Sell">Sell</option>
+        
+        </select>
+    </div>
+    <br>
+    <label for="emails">Enter Email Address: *</label>
+    <input class="form-control" type='text' name='emails' id='emails' placeholder="Enter Email Address"
+        aria-label="Enter Email Address">
+    <br>
+    <label for="description">Description: *</label>
+    <textarea class="form-control" type='text' name='description' id='description' placeholder="Enter Description"
+        aria-label="Enter Description" rows="3"></textarea>
+    <br>
+    
+    <input class="btn btn-primary" type='submit' value='Post'>
+</form>
+<hr>
+
+{% endblock %}
