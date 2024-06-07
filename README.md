@@ -13,6 +13,8 @@ This project is a web application initially developed as a blog application and 
 </p>
 
 
+          
+
 ## Features
 
     Property Listings: Users can list properties by providing details such as title, address, email, description, owner, type of transaction (sell, rent, buy), property type (bungalow, shop, flat), and date posted.
